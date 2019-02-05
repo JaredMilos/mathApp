@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+h3 {
+    margin: 0px 0 0;
+    font-size: 85px;
+    color: #F1F1EF;
+}
+
+h5 {
+    margin: 0;
+}
+
+p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    font-size: 18px;
+    text-align: center;
+    color: #F1F1EF;
+}
+
+#wrapper {
+    width: 480px;
+    height: 670px;
+    padding: 20px;
+    background-color: #F1F1EF;
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+
+/* Header section */
+
+#header {
+    min-width: 335px;
+    height: 75px;
+    background-color: #E37222;
+    box-sizing: border-box;
+}
+
+#logo {
+    height: 75px;
+    margin: 0px 94px;
+}
+
+/* Workspace section - index.html */
+
+#index_workspace {
+    min-width: 335px;
+    height: 475px;
+    vertical-align: top;
+    background-color: #78B8BE;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: inline-block;
+    background-color: #F1F1EF;
+    border: 1px solid black;
+    font-size: 26px;
+    height: 83px;
+    width: 295px;
+    margin: 37px 70px;
+}
+
+/* Workspace section - register.html */
+
+#register_workspace {
+    min-width: 335px;
+    height: 475px;
+    vertical-align: top;
+    background-color: #78B8BE;
+    text-align: center;
+    padding: 30px 54px 0px;
+    box-sizing: border-box;
+}
+
+.table {
+    display: table;
+    margin: 5px auto;
+}
+
+.red_text {
+    color: red;
+    font-size: 14px;
+}
+
+.tr {
+    display: table-row;
+}
+
+.td {
+    display: table-cell;
+}
+
+input {
+    margin: 6px 0px;
+}
+
+button {
+    margin-top: 6px;
+}
+
+#scores_button {
+    display: none;
+}
+
+/* Workspace section - login.html */
+
+#login_workspace {
+    min-width: 335px;
+    height: 475px;
+    vertical-align: top;
+    background-color: #78B8BE;
+    padding: 30px 92px 0px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Workspace section - menu.html */
+
+.menu_buttons {
+    display: inline-block;
+    background-color: #F1F1EF;
+    border: 1px solid black;
+    font-size: 26px;
+    height: 83px;
+    vertical-align: top;
+    width: 185px;
+}
+
+.top {
+    margin: 57px 127px;
+}
+
+.middle {
+    display: inline-block;
+    margin: 0px 16px;
+}
+
+.bottom {
+    margin: 57px 128px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+/* Workspace section - game.html */
+
+#problembox {
+    width: 440px;
+    height: 250px;
+    box-sizing: border-box;
+    padding: 9px 0 0;
+}
+
+.bignumber {
+    height: 108px;
+    width: 65px;
+    margin: 0px;
+    text-align: center;
+}
+
+#topnum {
+    margin: 0px 0px 0px 214px;
+}
+
+#mathtype {
+    margin: 35px 0 6px 147px;
+    vertical-align: top;
+    height: 55px;
+    width: 55px;
+    font-size: 47px;
+    display: inline-block;
+}
+
+.font47 {
+    font-size: 47px;
+}
+
+#bottomnum {
+    margin: 6px;
+    display: inline-block;
+}
+
+#whiteline {
+    height: 3px;
+    width: 250px;
+    background-color: #F1F1EF;
+    margin: 0px 90px;
+}
+
+#solutionbox {
+    width: 429px;
+    height: 94px;
+}
+
+#hidden_input {
+    height: 0px;
+    width: 0px;
+    display: inline-block;
+}
+
+.rectbutton {
+    display: inline-block;
+    vertical-align: top;
+    margin: 23px 14px;
+    width: 132px;
+    height: 44px;
+    background-color: #F1F1EF;
+    border: 1px solid black;
+}
+
+#solution {
+    display: inline-block;
+    height: 94px;
+    width: 94px;
+    background-color: black;
+    color: #F1F1EF;
+    font-size: 70px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#buttonbox {
+    width: 440px;
+    height: 130px;
+    padding: 5px 19px;
+    box-sizing: border-box;
+}
+
+.game_buttons {
+    margin: 1px 10px;
+    height: 55px;
+    width: 55px;
+    display: inline-block;
+    background-color: #F1F1EF;
+    border: 1px solid black;
+}
+
+/* Workspace section - records.html */
+
+#records_workspace {
+    min-width: 335px;
+    height: 475px;
+    vertical-align: top;
+    background-color: #78B8BE;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.round_display {
+    height: 84px;
+    width: 215px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+/* Workspace section - end_of_round.html */
+
+#h1big {
+    font-size: 40px;
+    text-align: center;
+}
+
+#scorebox {
+    height: 52px;
+}
+
+.problem_display {
+    height: 84px;
+    width: 215px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.green_text {
+    color: green;
+}
+
+.red_text2 {
+    color: red;
+}
+
+/* Footer section */
+
+#footer {
+    min-width: 335px;
+    height: 75px;
+    background-color: #E37222;
+    box-sizing: border-box;
+}
+
+.rectbutton1 {
+    display: inline-block;
+    vertical-align: top;
+    width: 132px;
+    height: 44px;
+    margin: 16px 41px;
+    background-color: #F1F1EF;
+    border: 1px solid black;
+}
+
+.rectbutton2 {
+    display: inline-block;
+    vertical-align: top;
+    width: 132px;
+    height: 44px;
+    margin: 16px 154px;
+    background-color: #F1F1EF;
+    border: 1px solid black;
+}
+
+.rectbutton3 {
+    display: inline-block;
+    vertical-align: top;
+    width: 132px;
+    height: 44px;
+    margin: 16px 147px;
+    background-color: #F1F1EF;
+    border: 1px solid black;
+}

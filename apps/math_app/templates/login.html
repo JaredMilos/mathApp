@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <title>MathApp!</title>
+    {% load static %}
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+        <div id='wrapper'>
+                <div id='header'>
+                    <img src="{% static 'mathapp_logo.png' %}" id="logo">
+                </div>
+                <div id='login_workspace'>
+                    <h2>Login</h2>
+                    <div id='table'>
+                        <form action="/log_user" method="POST">
+                            {% csrf_token %}
+                            {% if messages %} {% for message in messages %} {% if message.extra_tags == 'log_email' %}
+                                <p class="red_text">{{ message }}</p>
+                            {% endif %} {% endfor %} {% endif %}
+                            <span class="tr">
+                                <span class="td">
+                                    <p>Email:</p>
+                                </span>
+                                <span class="td">
+                                    <input name="email">
+                                </span>
+                            </span>
+                            {% if messages %} {% for message in messages %} {% if message.extra_tags == 'log_password' %}
+                                <p class="red_text">{{ message }}</p>
+                            {% endif %} {% endfor %} {% endif %}
+                            <span class="tr">
+                                <span class="td">
+                                    <p>Password:</p>
+                                </span>
+                                <span class="td">
+                                    <input type="password" name="password">
+                                </span>
+                            </span>
+                            <span class="tr">
+                                <span class="td"></span>
+                                <span class="td">
+                                    <button type="submit">
+                                        <span>Login</span>
+                                    </button>
+                                </span>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+                <div id='footer'>
+        
+                </div>
+            </div>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <title>Math Facts</title>
+    {% load static %}
+    <meta name="description" content="description of site contents">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id='wrapper'>
+        <div id='header'>
+            <img src="{% static 'mathapp_logo.png' %}" id="logo">
+        </div>
+        <div id='index_workspace'>
+            <div id='problembox'>
+                <div class='bignumber' id='topnum'>
+                    <h3>{{ request.session.top_num }}</h3>
+                </div>
+                <div id='mathtype'>
+                    <p class='font47'>{{ request.session.symbol }}</p>
+                </div>
+                <div class='bignumber' id='bottomnum'>
+                    <h3>{{ request.session.bottom_num }}</h3>
+                </div>
+                <div id='whiteline'>
+
+                </div>
+            </div>
+            <div id='solutionbox'>
+                <form action="/submit_response" method="POST" class="inline" id="submit_response">
+                    {% csrf_token %}
+                    <span id="hidden_input"></span>
+                    <button class='rectbutton' type='submit' id='enter'>
+                        <h1>Enter</h1>
+                    </button>
+                    <div id='solution'></div>
+                </form>
+                <button class='rectbutton' id='clear'>
+                    <h1>⇦ Clear</h1>
+                </button>
+            </div>
+            <div id='buttonbox'>
+                <button class='game_buttons' id='1'>
+                    <h1>1</h1>
+                </button>
+                <button class='game_buttons' id='2'>
+                    <h1>2</h1>
+                </button>
+                <button class='game_buttons' id='3'>
+                    <h1>3</h1>
+                </button>
+                <button class='game_buttons' id='4'>
+                    <h1>4</h1>
+                </button>
+                <button class='game_buttons' id='5'>
+                    <h1>5</h1>
+                </button>
+                <button class='game_buttons' id='6'>
+                    <h1>6</h1>
+                </button>
+                <button class='game_buttons' id='7'>
+                    <h1>7</h1>
+                </button>
+                <button class='game_buttons' id='8'>
+                    <h1>8</h1>
+                </button>
+                <button class='game_buttons' id='9'>
+                    <h1>9</h1>
+                </button>
+                <button class='game_buttons' id='0'>
+                    <h1>0</h1>
+                </button>
+            </div>
+        </div>
+        <div id='footer'>
+            <form action="/menu" method="GET">
+                <button class="rectbutton3">
+                    <h1>Menu</h1>
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            var response = '_';
+
+            function display_response() {
+                document.getElementById('solution').innerHTML = response;
+            };
+
+            display_response();
+
+            accept_user_input();
+
+            function accept_user_input() {
+                response = '_';
+                display_response();
+
+                $(document).keyup(function (e) {
+                    //Enter key
+                    if (e.which == 13) {
+                        if (response == '_') {
+                            return false;
+                        }
+                        else {
+                            $("#hidden_input").html('<input type="hidden" name="response" value=' + response + '>');
+                            $("#submit_response").submit();
+                        }
+                    }
+                    //Delete key
+                    if (e.which == 8) {
+                        response = '_';
+                        display_response();
+                    }
+                    if (e.which == 49) {
+                        if (response == '_') {
+                            response = 1;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 1;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 50) {
+                        if (response == '_') {
+                            response = 2;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 2;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 51) {
+                        if (response == '_') {
+                            response = 3;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 3;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 52) {
+                        if (response == '_') {
+                            response = 4;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 4;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 53) {
+                        if (response == '_') {
+                            response = 5;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 5;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 54) {
+                        if (response == '_') {
+                            response = 6;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 6;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 55) {
+                        if (response == '_') {
+                            response = 7;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 7;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 56) {
+                        if (response == '_') {
+                            response = 8;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 8;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 57) {
+                        if (response == '_') {
+                            response = 9;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 9;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                    if (e.which == 48) {
+                        if (response == '_') {
+                            response = 0;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                        else if (response < 10) {
+                            response = (10 * response) + 0;
+                            document.getElementById('solution').innerHTML = response;
+                            display_response();
+                        }
+                    }
+                });
+                $('#1').click(function () {
+                    if (response == '_') {
+                        response = 1;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 1;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#2').click(function () {
+                    if (response == '_') {
+                        response = 2;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 2;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#3').click(function () {
+                    if (response == '_') {
+                        response = 3;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 3;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#4').click(function () {
+                    if (response == '_') {
+                        response = 4;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 4;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#5').click(function () {
+                    if (response == '_') {
+                        response = 5;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 5;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#6').click(function () {
+                    if (response == '_') {
+                        response = 6;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 6;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#7').click(function () {
+                    if (response == '_') {
+                        response = 7;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 7;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#8').click(function () {
+                    if (response == '_') {
+                        response = 8;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 8;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#9').click(function () {
+                    if (response == '_') {
+                        response = 9;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 9;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#0').click(function () {
+                    if (response == '_') {
+                        response = 0;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                    else if (response < 10) {
+                        response = (10 * response) + 0;
+                        document.getElementById('solution').innerHTML = response;
+                        display_response();
+                    }
+                });
+                $('#clear').click(function () {
+                    response = '_';
+                    display_response();
+                });
+                $('#enter').click(function () {
+                    if (response == '_') {
+                        return false;
+                    }
+                    else {
+                        $("#hidden_input").html('<input type="hidden" name="response" value=' + response + '>');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
