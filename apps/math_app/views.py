@@ -9,19 +9,19 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from django.contrib import messages
 import random
 
-from playsound import playsound
+# from playsound import playsound
  
 # Homepage
 def index(request):
     if 'logged_in' not in request.session:
-        playsound('apps/math_app/static/intro.mp3', False)
+        # playsound('apps/math_app/static/intro.mp3', False)
         return render(request, "index.html")
     else:
         return redirect("/menu")
 
 # Registration page
 def register(request):
-    playsound('apps/math_app/static/button.mp3', False)
+    # playsound('apps/math_app/static/button.mp3', False)
     return render(request, "register.html")   
 
 # Create new user
@@ -74,7 +74,7 @@ def save_user(request):
 
 # Login page
 def login(request):
-    playsound('apps/math_app/static/button.mp3', False)
+    # playsound('apps/math_app/static/button.mp3', False)
     return render(request, "login.html")
 
 # Login logic
@@ -108,7 +108,7 @@ def log_user(request):
 
 # Game menu
 def menu(request):
-    playsound('apps/math_app/static/button.mp3', False)
+    # playsound('apps/math_app/static/button.mp3', False)
     return render(request, "menu.html")   
 
 # Game - Individual round logic
@@ -154,31 +154,31 @@ def submit_response(request):
     if request.session['game_type'] == 'add':
         if request.session['top_num'] +  request.session['bottom_num'] == int(request.POST['response']):
             request.session['score'] = 1
-            bell()
+            # bell()
         else:
             request.session['score'] = 0
-            buzzer()
+            # buzzer()
     elif request.session['game_type'] == 'sub':
         if request.session['top_num'] -  request.session['bottom_num'] == int(request.POST['response']):
             request.session['score'] = 1
-            bell()
+            # bell()
         else:
             request.session['score'] = 0
-            buzzer()
+            # buzzer()
     elif request.session['game_type'] == 'mult':
         if request.session['top_num'] *  request.session['bottom_num'] == int(request.POST['response']):
             request.session['score'] = 1
-            bell()
+            # bell()
         else:
             request.session['score'] = 0
-            buzzer()
+            # buzzer()
     elif request.session['game_type'] == 'div':
         if request.session['top_num'] /  request.session['bottom_num'] == int(request.POST['response']):
             request.session['score'] = 1
-            bell()
+            # bell()
         else:
             request.session['score'] = 0
-            buzzer()
+            # buzzer()
 
     one_round_list = [request.session['top_num'],request.session['symbol'], request.session['bottom_num'], int(request.POST['response']), request.session['solution'], request.session['score']]
         
@@ -195,7 +195,7 @@ def submit_response(request):
     return redirect("/game")
 
 def rerack(request):
-    playsound('apps/math_app/static/button.mp3', False)
+    # playsound('apps/math_app/static/button.mp3', False)
     if 'game_type' in request.POST:
         request.session['game_type'] = request.POST['game_type']
     request.session['game_counter'] = 0
@@ -208,7 +208,7 @@ def guest(request):
     return redirect("/menu")
 
 def end_of_round(request):
-    playsound('apps/math_app/static/end_round.mp3', False)
+    # playsound('apps/math_app/static/end_round.mp3', False)
     ten_round_list = request.session['ten_round_list']
     if request.session['from_game_flag'] == True:
         ten_round_list.append(request.session['round_score'])
@@ -229,8 +229,8 @@ def records(request):
     # return render(request, "records.html", context)
     return redirect("/menu")
 
-def bell():
-    playsound('apps/math_app/static/bell.mp3', False)
+# def bell():
+#     playsound('apps/math_app/static/bell.mp3', False)
 
-def buzzer():
-    playsound('apps/math_app/static/buzzer.mp3', False)
+# def buzzer():
+#     playsound('apps/math_app/static/buzzer.mp3', False)
